@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: eureka-security-client
+server:
+  port: 8081
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+
