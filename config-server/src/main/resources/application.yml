@@ -1,12 +1,21 @@
 ---
 spring:
+  application:
+    name: config-server
   cloud:
     config:
       server:
         git:
           uri: https://github.com/Flyer-jr/BuildinMachineryUsingCloud
           search-paths: ConfigData
-
-
 server:
   port: 8888
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+  instance:
+    hostname: localhost

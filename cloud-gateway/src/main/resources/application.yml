@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: gateway-service
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order/**
+        - id: equipment-service
+          uri: lb://EQUIPMENT-SERVICE
+          predicates:
+            - Path=/equipment/**
+        - id: equipment-producer-service
+          uri: lb://EQUIPMENT-PRODUCER-SERVICE
+          predicates:
+            - Path=/equipment-producer/**
+        - id: contractor-service
+          uri: lb://CONTRACTOR-SERVICE
+          predicates:
+            - Path=/contractor/**
+        - id: customer-service
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/customer/**
+        - id: site-service
+          uri: lb://SITE-SERVICE
+          predicates:
+            - Path=/site/**
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka
+  instance:
+    hostname: localhost
+server:
+  port: 8080
