@@ -1,0 +1,19 @@
+server:
+  port: 8092
+eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+spring:
+ datasource:
+   driverName: org.postgresql.Driver
+   url: jdbc:postgresql://localhost:5432/building_machinery?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+   username: Flyer
+   password: Ca59563
+   initialSize: 10
+   maxActive: 7
